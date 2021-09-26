@@ -1,0 +1,11 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=adresar_kontakty'
+	user: root
+	password: 
+		
+
+extensions:
+	- Contributte\FormMultiplier\DI\MultiplierExtension

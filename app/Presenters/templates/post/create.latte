@@ -1,0 +1,63 @@
+{block content}
+<div id="header-form-container">
+    <p><a onclick="return confirm('Opravdu chcete ukončit editaci? Neuložené změny se smažou.');" n:href="Homepage:default">← zpět</a></p>
+    <h1>Tvorba nového kontaktu</h1>
+</div>
+
+
+<div id="page-form-container">
+    {form postForm}
+    <ul class="errors" n:if="$form->hasErrors()">
+        <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+    <div class="main-row">
+        <h3 class="main-row-header">Pojmenování kontaktu</h3>
+        <div class="main-row-box main-row-box-two">
+            <span class="form-header">{label jmeno /}</span>
+            <span class="form-element">{input jmeno}</span>
+        </div>
+
+        <div class="main-row-box main-row-box-two">
+            <span class="form-header">{label prijmeni /}</span>
+            <span class="form-element">{input prijmeni}</span>
+        </div>
+
+    </div>
+    <div class="main-row">
+        <h3 class="main-row-header">Kontaktní informace</h3>
+        <div class="main-row-box main-row-box-two">
+            <span class="form-header">{label telefon /}</span>
+            <span class="form-element">{input telefon}</span>
+        </div>
+
+        <div class="main-row-box main-row-box-two">
+            <span class="form-header">{label email /}</span>
+            <span class="form-element">{input email}</span>
+        </div>
+    </div>
+    <div class="main-row">
+        <div class="main-row-box main-row-box-two">
+            <span class="form-header">{label poznamka /}</span>
+            <span class="form-element">{input poznamka}</span>
+        </div>
+
+    </div>
+
+    <ul class="errors" n:if="$form->hasErrors()">
+        <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+
+
+    {label send} {input send} {/form}
+    <button class="leavemainform"><a onclick="return confirm('Opravdu chcete ukončit editaci? Neuložené změny se smažou.');" n:href="Homepage:default">← Zpět</a></button>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

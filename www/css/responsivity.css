@@ -1,0 +1,97 @@
+/*CREATE FORM - PX responsivity: 350-650*/
+
+@media only screen and (min-width: 350px) and (max-width:750px) {
+    .main-row-box {
+        display: inline-block !important;
+    }
+    .main-row-box-three {
+        width: 75% !important;
+    }
+    .main-row-box-four {
+        width: 75% !important;
+    }
+    .main-row-box-five {
+        width: 80% !important;
+    }
+    .main-row-box-two {
+        width: 80% !important;
+    }
+    .form-header {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 751px) and (max-width:950px) {
+    .main-row-box {
+        display: inline-block !important;
+    }
+    .main-row-box-three {
+        width: 75% !important;
+    }
+    .main-row-box-four {
+        width: 75% !important;
+    }
+    .main-row-box-five {
+        width: 80% !important;
+    }
+    .main-row-box-two {
+        width: 80% !important;
+    }
+    .form-header {
+        text-align: center !important;
+    }
+    .form-element {
+        text-align: center !important;
+    }
+}
+
+@media only screen and (min-width: 951px) and (max-width:1200px) {
+    .main-row-box-two {
+        width: 80% !important;
+    }
+    .main-row-box-three {
+        width: 75% !important;
+    }
+    .main-row-box-four {
+        width: 30% !important;
+    }
+    .main-row-box-five {
+        width: 25% !important;
+    }
+    .form-header {
+        text-align: center !important;
+    }
+    .form-element {
+        text-align: center !important;
+    }
+}
+
+@media only screen and (min-width: 1201px) and (max-width:1500px) {
+    .main-row-box-two {
+        width: 40% !important;
+    }
+    .main-row-box-three {
+        width: 25% !important;
+    }
+    .main-row-box-four {
+        width: 19% !important;
+    }
+    .main-row-box-five {
+        width: 25% !important;
+    }
+}
+
+@media only screen and (min-width: 1501px) and (max-width:1900px) {
+    .main-row-box-two {
+        width: 40% !important;
+    }
+    .main-row-box-three {
+        width: 26% !important;
+    }
+    .main-row-box-four {
+        width: 19% !important;
+    }
+    .main-row-box-five {
+        width: 25% !important;
+    }
+}

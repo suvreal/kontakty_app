@@ -1,0 +1,257 @@
+<div id="header-posts-container">
+    <h1>Moje kontakty</h1>
+</div>
+
+<div id="main-default-create">
+    <a n:href="Post:create">
+			Přidat kontakt 
+			<span class="iconify posts-create-action" data-icon="mdi:plus-box" data-inline="false"></span>
+		</a>
+</div>
+
+<!--Výpis záznamů-->
+<div n:foreach="$posts as $post" class="post">
+    <h2 class="posts-labels"><a n:href="Post:show $post->id">{$post->jmeno} {$post->prijmeni}</a><span class="iconify posts-detail-action" data-icon="mdi:more" data-inline="false"></span></h2>
+    <div class="date date-post-label posts-labels">{$post->datum_vytvoreni|date:'F j, Y'}</div>
+    <div class="content-post-label posts-labels">{$post->telefon}</div>
+    <div class="content-post-label posts-labels">{$post->email}</div>
+    <div class="content-post-label posts-labels">{$post->poznamka}</div>
+    <p><a n:href="Post:edit $post->id"><span class="iconify posts-edit-action" data-icon="mdi:pencil" data-inline="false"></span></a>
+        <a onclick="return confirm('Opravdu chcete smazat záznam?');" n:href="delete! $post->id"><span class="iconify posts-delete-action" data-icon="mdi:delete-forever" data-inline="false"></span></a></p>
+
+</div>
+
+<!--Stránkování-->
+<div class="pagination">
+    {if !$paginator->isFirst()}
+    <a n:href="default, 1">První</a> &nbsp;|&nbsp;
+    <a n:href="default, $paginator->page-1">Předchozí</a> &nbsp;|&nbsp; {/if} Stránka {$paginator->getPage()} z {$paginator->getPageCount()} {if !$paginator->isLast()} &nbsp;|&nbsp;
+    <a n:href="default, $paginator->getPage() + 1">Další</a> &nbsp;|&nbsp;
+    <a n:href="default, $paginator->getPageCount()">Poslední</a> {/if}
+</div>
+
+
+<style>
+    .post {
+        display: block;
+        position: relative;
+        padding: 5px 10px 5px 10px;
+        font-family: sans-serif;
+        width: 90%;
+        height: auto;
+        border-radius: 3px;
+        margin: auto;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 3px rgb(0 0 0 / 24%);
+        background-color: #f7f7f7;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+        /* background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 4px), repeating-linear-gradient( #afafaf4f, #ffffff63); */
+        animation-name: mainrow-load;
+        animation-duration: 0.45s;
+        border-left: 7px solid #2971f5;
+    }
+    
+    .post h2,
+    .post div,
+    .post p {
+        display: inline-block;
+        font-weight: 500 !important;
+        font-size: 17px;
+    }
+    
+    .post:hover {
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+        outline: #246ef73d solid 5px;
+        border-left: 7px solid #f7f7f7;
+    }
+    
+    .post:hover .date-post-label,
+    .post:hover .content-post-label {
+        color: #3476f0;
+    }
+    
+    @keyframes mainrow-load {
+        0% {
+            margin-top: 500px;
+        }
+        20% {
+            margin-top: 250px;
+        }
+        40% {
+            margin-top: 125px;
+        }
+        60% {
+            margin-top: 62px;
+        }
+        80% {
+            margin-top: 31px;
+        }
+        100% {
+            margin-top: 15px;
+        }
+    }
+    
+    .date {
+        font-weight: 700 !important;
+    }
+    
+    .date-post-label,
+    .content-post-label {
+        color: #525252;
+    }
+    
+    .post h2 a {
+        text-decoration: unset;
+        color: #2971f6;
+        padding: 0px 5px 0px 5px;
+        font-weight: 600!important;
+        font-size: 17px !important;
+    }
+    
+    .post .div,
+    .post h2 {
+        text-align: left !important;
+    }
+    
+    .post p {
+        position: absolute;
+        right: 13px;
+        width: auto;
+        top: 0px;
+    }
+    
+    .post p a {
+        position: inline-block;
+    }
+    
+    .navig {
+        margin: auto;
+        text-align: center;
+        text-transform: lowercase;
+        color: #444;
+    }
+    
+    .navig span a {
+        text-decoration: unset;
+        color: #444;
+    }
+    
+    .posts-edit-action,
+    .posts-delete-action,
+    .posts-create-action {
+        font-size: 25px;
+        color: #444;
+    }
+    
+    .posts-edit-action:hover,
+    .posts-create-action:hover {
+        color: #246ef7;
+    }
+    
+    .posts-delete-action:hover {
+        color: #f72424;
+    }
+    
+    #main-default-create {
+        margin: auto;
+        display: block;
+        position: relative;
+        text-align: center;
+    }
+    
+    #main-default-create a {
+        color: white;
+        text-decoration: auto;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        background: gainsboro;
+        padding: 20px;
+        margin: 30px;
+        display: inline-block;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        font-weight: 600;
+        background-color: #246ef7;
+        opacity: 1;
+        background-image: repeating-radial-gradient( circle at 2px 35px, transparent 0, #246ef7c7 1px), repeating-linear-gradient( #b1b1b145, #b1b1b100);
+    }
+    
+    #main-default-create a:hover {
+        cursor: pointer;
+        background-color: #246ef7a8;
+        opacity: 1;
+        background-image: repeating-radial-gradient( circle at 63px -22px, transparent 0, #246ef7c7 40px), repeating-linear-gradient( #246ef79c, #246ef7b8);
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+        outline: #246ef71c solid 10px;
+    }
+    
+    .posts-create-action {
+        top: 5px;
+        position: relative;
+        font-size: 27px !important;
+        color: white;
+    }
+    
+    .posts-detail-action {
+        color: #bbbbbb;
+        top: 4px;
+        position: relative;
+        transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
+    }
+    
+    h2.posts-labels:hover .posts-detail-action {
+        color: #246ef7;
+    }
+    
+    h2.posts-labels:hover a {
+        text-decoration: underline;
+    }
+    
+    .posts-logout-action,
+    .posts-login-action {
+        top: 4px;
+        position: relative;
+    }
+    
+    .posts-logout-action:hover,
+    .posts-login-action:hover {
+        color: #246ef7;
+    }
+    
+    .navig:hover span a {
+        color: #246ef7;
+    }
+    
+    .navig:hover span .posts-logout-action,
+    .navig:hover span .posts-login-action {
+        color: #246ef7;
+    }
+    
+    .pagination {
+        text-align: center;
+        padding: 50px;
+        color: #444;
+        font-weight: 800;
+        font-family: sans;
+        text-transform: lowercase;
+    }
+    
+    .posts-login-action {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+    }
+    
+    #header-posts-container h1 {
+        display: block;
+        color: #444;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: xx-large;
+        text-shadow: 2px 2px #eaeaea;
+    }
+</style>
+
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>

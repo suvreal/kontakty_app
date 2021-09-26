@@ -1,0 +1,37 @@
+{block content}
+<div id="header-login-container">
+<p><a n:href="Homepage:default">← zpět</a></p>
+
+</div>
+
+<div id="page-login-container">
+
+{form signInForm}
+
+<ul class="errors" n:if="$form->hasErrors()">
+	<li n:foreach="$form->errors as $error">{$error}</li>
+</ul>
+
+<div class="main-login-row">
+
+    <h1 n:block=title>Přihlášení</h1>
+
+    <div class="main-login-box">
+        <span class="form-header">{label username /}</span>
+        <span class="form-element">{input username}</span>
+    </div>
+
+    <div class="main-login-box">
+        <span class="form-header">{label password /}</span>
+        <span class="form-element">{input password}</span>
+    </div>
+
+</div>
+
+    {label send}
+    {input send}
+
+{/form}
+
+</div>
+

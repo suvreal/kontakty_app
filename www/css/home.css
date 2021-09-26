@@ -1,0 +1,9 @@
+.post {
+    background-color: silver;
+}
+
+.post h2,
+.post div,
+.post p {
+    display: inline-flex;
+}

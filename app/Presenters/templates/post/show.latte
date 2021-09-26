@@ -1,0 +1,32 @@
+{block content}
+
+<div id="header-form-container">
+    <p><a n:href="Homepage:default">← zpět</a></p>
+</div>
+
+
+<div class="main-row">
+    <div class="date detail-elems">{$post->datum_vytvoreni|date:'F j, Y'}</div>
+</div>
+
+<div class="main-row">
+    <h2 n:block="jmeno">{$post->jmeno} {$post->prijmeni}</h2>
+</div>
+
+<div class="main-row">
+    <h2 n:block="telefon">{$post->telefon}</h2>
+    <div class="post detail-elems">{$post->email}</div>
+</div>
+
+{if}
+
+<div class="main-row">
+    <div class="post detail-elems">{$post->poznamka}</div>
+</div>
+{/if ($post->poznamka)}
+
+<button class="leavemainform"><a n:href="edit $post->id">Editovat</a></button>
+
+<style>
+
+</style>
